@@ -77,9 +77,9 @@ export function AuditLogs() {
                      {format(log.timestamp, "MMM d, HH:mm")}
                   </div>
                   
-                  <div className="flex flex-col">
-                     <span className="text-sm text-slate-200">{log.user}</span>
-                     <span className="text-[10px] text-slate-500">{log.role}</span>
+                     <div className="flex flex-col">
+                        <span className="text-sm text-slate-200">{log.user}</span>
+                        <span className="text-[10px] text-slate-500">{log.role}</span>
                   </div>
 
                   <div>

@@ -250,45 +250,45 @@ export function CounterpartyExposures() {
          {/* Table */}
          {activeTab === 'By Entity Type' && (
            <>
-             <div className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] gap-4 px-6 py-3 bg-slate-900/60 border-b border-slate-800 text-xs font-medium text-slate-400 uppercase">
-                <div>Entity Type</div>
-                <div className="text-right">Incoming Direct</div>
-                <div className="text-right">Incoming Indirect</div>
-                <div className="text-right">Outgoing Direct</div>
-                <div className="text-right">Outgoing Indirect</div>
-             </div>
+         <div className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] gap-4 px-6 py-3 bg-slate-900/60 border-b border-slate-800 text-xs font-medium text-slate-400 uppercase">
+            <div>Entity Type</div>
+            <div className="text-right">Incoming Direct</div>
+            <div className="text-right">Incoming Indirect</div>
+            <div className="text-right">Outgoing Direct</div>
+            <div className="text-right">Outgoing Indirect</div>
+         </div>
 
-             <div className="divide-y divide-slate-800/50">
+         <div className="divide-y divide-slate-800/50">
                 {MOCK_BY_TYPE.map((row) => (
-                   <div key={row.type} className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] gap-4 px-6 py-4 items-center hover:bg-slate-800/20 transition-colors group">
-                      <div className="flex items-center gap-2">
-                         <Badge className={cn("text-white font-medium px-3 py-0.5 rounded-full border-0", row.color)}>
-                            {row.type}
-                         </Badge>
-                      </div>
-                      
-                      <div className="text-right text-sm">
-                         <span className="text-slate-300">{formatCurrency(row.incoming.direct)}</span>
-                         <span className="text-slate-600 text-xs ml-1">({row.incoming.directPct.toFixed(1)}%)</span>
-                      </div>
-                      
-                      <div className="text-right text-sm">
-                         <span className="text-slate-300">{formatCurrency(row.incoming.indirect)}</span>
-                         <span className="text-slate-600 text-xs ml-1">({row.incoming.indirectPct.toFixed(1)}%)</span>
-                      </div>
+               <div key={row.type} className="grid grid-cols-[2fr,1fr,1fr,1fr,1fr] gap-4 px-6 py-4 items-center hover:bg-slate-800/20 transition-colors group">
+                  <div className="flex items-center gap-2">
+                     <Badge className={cn("text-white font-medium px-3 py-0.5 rounded-full border-0", row.color)}>
+                        {row.type}
+                     </Badge>
+                  </div>
+                  
+                  <div className="text-right text-sm">
+                     <span className="text-slate-300">{formatCurrency(row.incoming.direct)}</span>
+                     <span className="text-slate-600 text-xs ml-1">({row.incoming.directPct.toFixed(1)}%)</span>
+                  </div>
+                  
+                  <div className="text-right text-sm">
+                     <span className="text-slate-300">{formatCurrency(row.incoming.indirect)}</span>
+                     <span className="text-slate-600 text-xs ml-1">({row.incoming.indirectPct.toFixed(1)}%)</span>
+                  </div>
 
-                      <div className="text-right text-sm">
-                         <span className="text-slate-300">{formatCurrency(row.outgoing.direct)}</span>
-                         <span className="text-slate-600 text-xs ml-1">({row.outgoing.directPct.toFixed(1)}%)</span>
-                      </div>
+                  <div className="text-right text-sm">
+                     <span className="text-slate-300">{formatCurrency(row.outgoing.direct)}</span>
+                     <span className="text-slate-600 text-xs ml-1">({row.outgoing.directPct.toFixed(1)}%)</span>
+                  </div>
 
-                      <div className="text-right text-sm">
-                         <span className="text-slate-300">{formatCurrency(row.outgoing.indirect)}</span>
-                         <span className="text-slate-600 text-xs ml-1">({row.outgoing.indirectPct.toFixed(1)}%)</span>
-                      </div>
-                   </div>
-                ))}
-             </div>
+                  <div className="text-right text-sm">
+                     <span className="text-slate-300">{formatCurrency(row.outgoing.indirect)}</span>
+                     <span className="text-slate-600 text-xs ml-1">({row.outgoing.indirectPct.toFixed(1)}%)</span>
+                  </div>
+               </div>
+            ))}
+         </div>
            </>
          )}
 

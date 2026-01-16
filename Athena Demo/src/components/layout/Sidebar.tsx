@@ -5,14 +5,10 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
   LayoutDashboard,
-  AlertTriangle,
   Briefcase,
-  ShieldAlert,
   Users,
-  Network,
-  LogOut,
-  Settings,
-  Menu
+  Scan,
+  Settings
 } from "lucide-react"
 
 const routes = [
@@ -23,22 +19,10 @@ const routes = [
     color: "text-brand-cyan",
   },
   {
-    label: "Alerts",
-    icon: AlertTriangle,
-    href: "/alerts",
-    color: "text-red-500",
-  },
-  {
     label: "Cases",
     icon: Briefcase,
     href: "/cases",
     color: "text-brand-purple",
-  },
-  {
-    label: "Rules",
-    icon: ShieldAlert,
-    href: "/rules",
-    color: "text-green-500",
   },
   {
     label: "Customers",
@@ -47,9 +31,9 @@ const routes = [
     color: "text-orange-500",
   },
   {
-    label: "Network",
-    icon: Network,
-    href: "/network",
+    label: "Address Screen",
+    icon: Scan,
+    href: "/address-screen",
     color: "text-brand-blue",
   },
 ]

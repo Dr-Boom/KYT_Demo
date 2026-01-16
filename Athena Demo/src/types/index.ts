@@ -40,6 +40,13 @@ export interface Finding {
   createdAt: string; // ISO date
 }
 
+export interface AddressScreeningHistoryItem {
+  id: string;
+  address: string;
+  chain: 'BTC' | 'ETH' | 'TRX' | 'SOL' | 'BSC';
+  screenedAt: string; // ISO date
+}
+
 export interface Transaction {
   id: string;
   hash: string;

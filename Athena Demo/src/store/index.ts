@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Transaction, Case, Rule, Finding } from '@/types';
+import { Transaction, Case, Rule, Finding, AddressScreeningHistoryItem } from '@/types';
 import { INITIAL_TRANSACTIONS, INITIAL_CASES, MOCK_RULES } from '@/data/mock-data';
 
 interface AppState {
@@ -7,6 +7,7 @@ interface AppState {
   cases: Case[];
   rules: Rule[];
   findingsByCaseId: Record<string, Finding[]>;
+  addressScreeningHistory: AddressScreeningHistoryItem[];
   
   // Actions
   addCase: (newCase: Case) => void;
@@ -15,6 +16,7 @@ interface AppState {
   updateTransactionStatus: (id: string, status: Transaction['status']) => void;
   addFinding: (caseId: string, content: string, author?: string) => void;
   deleteFinding: (caseId: string, findingId: string) => void;
+  addAddressScreening: (item: AddressScreeningHistoryItem) => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
@@ -22,6 +24,7 @@ export const useAppStore = create<AppState>((set) => ({
   cases: INITIAL_CASES,
   rules: MOCK_RULES,
   findingsByCaseId: {},
+  addressScreeningHistory: [],
   
   addCase: (newCase) => set((state) => ({ cases: [newCase, ...state.cases] })),
   
@@ -62,5 +65,12 @@ export const useAppStore = create<AppState>((set) => ({
           [caseId]: current.filter((f) => f.id !== findingId),
         },
       }
+    }),
+
+  addAddressScreening: (item) =>
+    set((state) => {
+      const next = [item, ...state.addressScreeningHistory]
+      // keep most recent 25 for demo
+      return { addressScreeningHistory: next.slice(0, 25) }
     }),
 }));
