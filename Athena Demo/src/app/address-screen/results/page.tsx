@@ -193,7 +193,7 @@ export default function AddressScreeningResultsPage() {
                   value="overview"
                   className="h-full rounded-none border-b-2 border-transparent data-[state=active]:border-brand-blue data-[state=active]:bg-transparent data-[state=active]:text-brand-blue text-slate-400 px-2"
                 >
-                  Overview
+                  Risk Overview
                 </TabsTrigger>
                 <TabsTrigger
                   value="exposures"
@@ -211,49 +211,6 @@ export default function AddressScreeningResultsPage() {
             </div>
 
             <TabsContent value="overview" className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
-              {/* Address Summary (table header in screenshot) */}
-              <div className="bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden">
-                <div className="p-4 border-b border-slate-800 flex items-center justify-between">
-                  <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                    Address Summary
-                  </h3>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800"
-                  >
-                    Value in Digital Asset
-                  </Button>
-                </div>
-                <div className="p-4">
-                  <div className="grid grid-cols-12 gap-3 text-xs text-slate-500 pb-3 border-b border-slate-800/60">
-                    <div className="col-span-2">Token</div>
-                    <div className="col-span-2">Balance</div>
-                    <div className="col-span-3">Total Incoming Value</div>
-                    <div className="col-span-3">Total Outgoing Value</div>
-                    <div className="col-span-2 text-right">Earliest / Latest</div>
-                  </div>
-
-                  <div className="grid grid-cols-12 gap-3 py-3 text-sm text-slate-200 items-center">
-                    <div className="col-span-2 font-medium">{result.asset}</div>
-                    <div className="col-span-2">
-                      {result.balanceNative.toFixed(4)} {result.asset}
-                    </div>
-                    <div className="col-span-3">
-                      {(result.balanceNative * 0.6).toFixed(4)} {result.asset}
-                    </div>
-                    <div className="col-span-3">
-                      {(result.balanceNative * 0.6).toFixed(4)} {result.asset}
-                    </div>
-                    <div className="col-span-2 text-right text-xs text-slate-400 font-mono">
-                      {format(new Date(result.earliestTx), "MMM d, yyyy")}
-                      <span className="text-slate-700 mx-2">/</span>
-                      {format(new Date(result.latestTx), "MMM d, yyyy")}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <AddressAlertsSummary alerts={result.alerts} />
             </TabsContent>
 
